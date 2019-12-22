@@ -11,7 +11,7 @@ Note: This addon requires a mysql database. Make sure you have the MariaDB addon
 
 database: spotweb
 username: spotweb
-password: spotweb
+password: 1gZOrDTUPq
 
 1. [Add my Hass.io add-ons repository][repository] to your Hass.io instance.
 1. Install the add-on.
