@@ -21,7 +21,7 @@ comparison to installing any other Hass.io add-on.
 
 ## Configuration
 
-Webui can be found at <your-ip>:6789 and the default login details (change ASAP) are
+Webui can be found at <your-ip>:6790 and the default login details (change ASAP) are
 
 `login`:nzbget, `password`:tegbzn6789
 
