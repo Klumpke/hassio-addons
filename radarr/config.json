@@ -1,7 +1,7 @@
 {
   "name": "Radarr",
   "version": "latest",
-  "slug": "radarr_docker",
+  "slug": "radarr",
   "description": "Radarr add-on based on the prebuilt docker image from linuxserver",
   "url": "https://github.com/marcelveldt/hassio-addons-repo/radarr",
   "startup": "services",

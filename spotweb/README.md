@@ -23,7 +23,7 @@ password: 1gZOrDTUPq
 
 ## Configuration
 
-Access the webui at <your-ip>:8080
+Access the webui at <your-ip>:9999
 
 - Spotweb is configured as an open system after running docker-compose up, so everyone who can access can register an account (keep this in mind)
 - If you want to use the Spotweb API, create a new user and use the API key associated with that user

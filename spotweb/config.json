@@ -1,7 +1,7 @@
 {
   "name": "Spotweb",
   "version": "latest",
-  "slug": "spotweb_docker",
+  "slug": "spotweb",
   "description": "Spotweb add-on based on erikdevries/spotweb",
   "startup": "services",
   "arch": [
@@ -14,7 +14,7 @@
     "80/tcp": 9999
   },
   "map": ["share:rw"],
-  "webui": "http://[HOST]:[PORT:8080]",
+  "webui": "http://[HOST]:[PORT:9999]",
   "boot": "auto",
   "environment": {
     "DB_HOST": "172.30.32.1",
