@@ -1,60 +1,45 @@
-FROM amd64/python:alpine
+FROM python:alpine
 
-ENV QEMU_EXECVE 1
-COPY ./tmp/qemu/qemu-x86_64-static /usr/bin/
-COPY ./tmp/dsmr/ /dsmr
+ENV DSMR_READER_VERSION v1.26.1
 
 ENV DSMR_USER admin
 ENV DSMR_EMAIL root@localhost
 ENV DSMR_PASSWORD admin
 
 ENV DB_HOST dsmrdb
-ENV DB_PORT 5432
 ENV DB_USER dsmrreader
 ENV DB_PASS dsmrreader
 ENV DB_NAME dsmrreader
 
-ENV SD_LOGLEVEL info
-ENV SD_USER root
-ENV SD_GROUP root
-ENV SD_AUTOSTART_DATALOGGER true
-ENV SD_AUTORESTART_DATALOGGER true
-ENV SD_AUTOSTART_BACKEND true
-ENV SD_AUTORESTART_BACKEND true
-ENV SD_AUTOSTART_MQTT true
-ENV SD_AUTORESTART_MQTT true
-
-RUN ["/usr/bin/qemu-x86_64-static", "/bin/sh", "-c", \
-     "apk --update add --no-cache \
+RUN apk --update add --no-cache \
       bash \
       curl \
       nginx \
-      openssl \
       postgresql-client \
-      tzdata \
-      supervisor"]
+      supervisor
 
-RUN ["/usr/bin/qemu-x86_64-static", "/bin/sh", "-c", \
-     "cp /dsmr/dsmrreader/provisioning/django/postgresql.py /dsmr/dsmrreader/settings.py"]
+RUN curl --location https://github.com/dennissiemensma/dsmr-reader/archive/${DSMR_READER_VERSION}.tar.gz -o /tmp/dsmr.tar.gz && \
+    tar -xzf /tmp/dsmr.tar.gz -C / && \
+    mv /dsmr-reader* /dsmr && \
+    rm -f /tmp/dsmr.tar.gz && \
+    cp /dsmr/dsmrreader/provisioning/django/postgresql.py /dsmr/dsmrreader/settings.py
 
-RUN ["/usr/bin/qemu-x86_64-static", "/bin/sh", "-c", \
-     "apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
-      pip3 install -r /dsmr/dsmrreader/provisioning/requirements/base.txt --no-cache-dir && \
-      pip3 install -r /dsmr/dsmrreader/provisioning/requirements/postgresql.txt --no-cache-dir && \
-      apk --purge del .build-deps && \
-      rm -rf /tmp/*"]
+RUN apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
+    pip3 install six --no-cache && \
+    pip3 install -r /dsmr/dsmrreader/provisioning/requirements/base.txt --no-cache-dir && \
+    pip3 install -r /dsmr/dsmrreader/provisioning/requirements/postgresql.txt --no-cache-dir && \
+    apk --purge del .build-deps && \
+    rm -rf /tmp/*
 
-RUN ["/usr/bin/qemu-x86_64-static", "/bin/sh", "-c", \
-     "mkdir -p /run/nginx/ && \
-      ln -sf /dev/stdout /var/log/nginx/access.log && \
-      ln -sf /dev/stderr /var/log/nginx/error.log && \
-      rm -f /etc/nginx/conf.d/default.conf && \
-      mkdir -p /var/www/dsmrreader/static && \
-      cp /dsmr/dsmrreader/provisioning/nginx/dsmr-webinterface /etc/nginx/conf.d/dsmr-webinterface.conf"]
+RUN mkdir -p /run/nginx/ && \
+    ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log && \
+    rm -f /etc/nginx/conf.d/default.conf && \
+    mkdir -p /var/www/dsmrreader/static && \
+    cp /dsmr/dsmrreader/provisioning/nginx/dsmr-webinterface /etc/nginx/conf.d/dsmr-webinterface.conf
 
 COPY ./app/run.sh /run.sh
-RUN ["/usr/bin/qemu-x86_64-static", "/bin/sh", "-c", \
-     "chmod u+x /run.sh"]
+RUN chmod u+x /run.sh
 
 COPY ./app/supervisord.ini /etc/supervisor.d/supervisord.ini
 
