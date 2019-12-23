@@ -18,12 +18,8 @@
   "webui": "http://[HOST]:[PORT:8888]",
   "boot": "auto",
   "environment": {
-    "DB_HOST": "dsmrdb",
-    "DSMR_USER": "dsmrreader",
-    "DSMR_PASSWORD": "dsmrreader",
-    "DSMR_EMAIL": "root@localhost"
+
   },
   "schema": {},
-  "options": {},
-  "image":"xirixiz/dsmr-reader-docker"
+  "options": {}
 }
