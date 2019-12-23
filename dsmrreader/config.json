@@ -1,7 +1,7 @@
 {
   "name": "DSMR Reader",
   "version": "latest",
-  "slug": "dsmr-reader",
+  "slug": "dsmr",
   "description": "DSMR Reader add-on based on xirixiz/dsmr-reader-docker",
   "startup": "services",
   "arch": [
