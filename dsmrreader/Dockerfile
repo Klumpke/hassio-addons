@@ -1,7 +1,7 @@
 FROM amd64/python:alpine
 
 ENV QEMU_EXECVE 1
-COPY ./tmp/qemu/qemu-amd64-static /usr/bin/
+COPY ./tmp/qemu/qemu-x86_64-static /usr/bin/
 COPY ./tmp/dsmr/ /dsmr
 
 ENV DSMR_USER admin
