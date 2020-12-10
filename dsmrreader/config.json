@@ -17,6 +17,5 @@
   "webui": "http://[HOST]:[PORT:8888]",
   "boot": "auto",
   "schema": {},
-  "options": {},
-  "image":"ualex73/dsmr-reader-docker"
+  "options": {}
 }
