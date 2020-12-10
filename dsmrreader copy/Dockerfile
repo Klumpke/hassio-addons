@@ -6,9 +6,13 @@ FROM ${BUILD_FROM}
 COPY rootfs /
 
 # Setup base
-RUN apk add --no-cache \
-    coreutils=8.32-r0 \
-    wget=1.20.3-r1
+RUN apk --update add --no-cache \
+    bash \
+    curl \
+    nginx \
+    postgresql-client \
+    mariadb-dev \
+    supervisor
 
 # Build arguments
 ARG BUILD_ARCH
