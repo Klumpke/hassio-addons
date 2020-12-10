@@ -16,13 +16,6 @@
   "map": ["share:rw"],
   "webui": "http://[HOST]:[PORT:8888]",
   "boot": "auto",
-  // "environment": {
-  //   "DB_HOST": "172.30.32.1",
-  //   "DB_PORT": "3306",
-  //   "DB_NAME": "spotweb",
-  //   "DB_USER": "spotweb",
-  //   "DB_PASS": "1gZOrDTUPq"
-  // },
   "schema": {},
   "options": {},
   "image":"ualex73/dsmr-reader-docker"
