@@ -13,7 +13,7 @@ fi
 
 # Start s0pcm-reader
 echo "[INFO] Start S0PCM-reader"
-exec python ./s0pcm-reader.py -c $DATA_PATH
+exec python3 ./s0pcm-reader.py -c $DATA_PATH
 
 if [ -f $DATA_PATH/.noexit ]; then
   sleep 7d
