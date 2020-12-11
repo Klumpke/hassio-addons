@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bashio
 
 DATA_PATH=$(bashio::config '.data_path')
 
