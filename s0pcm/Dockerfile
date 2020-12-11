@@ -1,4 +1,5 @@
-FROM python:alpine
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 MAINTAINER "Alex <ualex73@gmail.com>"
 

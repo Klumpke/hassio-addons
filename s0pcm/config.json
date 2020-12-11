@@ -19,7 +19,7 @@
       "share:rw"
     ],
     "options": {
-      "data_path": "/share/s0pcm",
+      "data_path": "/share/s0pcm-reader",
       "homeassistant": true,
       "permit_join": false,
       "mqtt": {
