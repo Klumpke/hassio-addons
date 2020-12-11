@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DATA_PATH=$(jq --raw-output ".data_path")
+DATA_PATH=$(bashio::config '.data_path')
 
 # Copy example configuration if not exists
 if [ ! -f $DATA_PATH/configuration.yaml ]; then
