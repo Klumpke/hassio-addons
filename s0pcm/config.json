@@ -14,50 +14,17 @@
       "i386"
     ],
     "boot": "auto",
-    "ingress": true,
     "map": [
       "share:rw"
     ],
+    "devices": ["/dev/bus/usb:/dev/bus/usb:rwm", "/dev/mem:/dev/mem:rw"],
     "options": {
       "data_path": "/share/s0pcm-reader",
-      "homeassistant": true,
-      "permit_join": false,
-      "mqtt": {
-        "base_topic": "zigbee2mqtt",
-        "server": "mqtt://core-mosquitto",
-        "user": "my_user",
-        "password": "my_password"
-      },
-      "serial": {
-        "port": "/dev/ttyACM0"
-      }
+      "device": "/dev/ttyACM0"
     },
     "schema": {
-      "zigbee_shepherd_devices": "bool?",
-      "zigbee_shepherd_debug": "bool?",
-      "zigbee_herdsman_debug": "bool?",
       "data_path": "str",
-      "homeassistant": "bool",
-      "permit_join": "bool",
-      "mqtt": {
-        "base_topic": "str",
-        "server": "str",
-        "ca": "str?",
-        "key": "str?",
-        "cert": "str?",
-        "user": "str?",
-        "password": "str?",
-        "client_id": "str?",
-        "keepalive": "int?",
-        "version": "int?",
-        "reject_unauthorized": "bool?",
-        "include_device_information": "bool?",
-        "force_disable_retain": "bool?"
-      },
-      "serial": {
-        "port": "str",
-        "disable_led": "bool?",
-        "adapter": "match(^zstack|deconz$)?"
+      "device": "str"
       }
     }
   }
