@@ -11,8 +11,8 @@ if [ ! -f $DATA_PATH/configuration.yaml ]; then
   cp ./configuration.yaml.example $DATA_PATH/configuration.yaml
 fi
 
-# Start s0pcmreader
-echo "[INFO] Start S0PCM Reader"
+# Start s0pcm-reader
+echo "[INFO] Start S0PCM-reader"
 python ./s0pcm-reader.py -c $DATA_PATH
 S0PCMREADER_PID=$!
 
