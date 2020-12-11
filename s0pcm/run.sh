@@ -1,7 +1,8 @@
-#!/usr/bin/env bashio
+#!/bin/bash
 
-DATA_PATH=$(bashio::config '.data_path')
+CONFIG_PATH=/data/options.json
 
+DATA_PATH=$(jq --raw-output '.data_path' $CONFIG_PATH)
 # Copy example configuration if not exists
 if [ ! -f $DATA_PATH/configuration.yaml ]; then
   cp ./configuration.yaml.example $DATA_PATH/configuration.yaml
