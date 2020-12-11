@@ -1,0 +1,63 @@
+{
+    "name": "S0PCM",
+    "version": "0.1",
+    "slug": "s0pcm",
+    "description": "S0PCM",
+    "auto_uart": true,
+    "url": "https://github.com/Klumpke/hassio-addons/s0pcm",
+    "startup": "application",
+    "arch": [
+      "aarch64",
+      "amd64",
+      "armhf",
+      "armv7",
+      "i386"
+    ],
+    "boot": "auto",
+    "ingress": true,
+    "map": [
+      "share:rw"
+    ],
+    "options": {
+      "data_path": "/share/s0pcm",
+      "homeassistant": true,
+      "permit_join": false,
+      "mqtt": {
+        "base_topic": "zigbee2mqtt",
+        "server": "mqtt://core-mosquitto",
+        "user": "my_user",
+        "password": "my_password"
+      },
+      "serial": {
+        "port": "/dev/ttyACM0"
+      }
+    },
+    "schema": {
+      "zigbee_shepherd_devices": "bool?",
+      "zigbee_shepherd_debug": "bool?",
+      "zigbee_herdsman_debug": "bool?",
+      "data_path": "str",
+      "homeassistant": "bool",
+      "permit_join": "bool",
+      "mqtt": {
+        "base_topic": "str",
+        "server": "str",
+        "ca": "str?",
+        "key": "str?",
+        "cert": "str?",
+        "user": "str?",
+        "password": "str?",
+        "client_id": "str?",
+        "keepalive": "int?",
+        "version": "int?",
+        "reject_unauthorized": "bool?",
+        "include_device_information": "bool?",
+        "force_disable_retain": "bool?"
+      },
+      "serial": {
+        "port": "str",
+        "disable_led": "bool?",
+        "adapter": "match(^zstack|deconz$)?"
+      }
+    }
+  }
