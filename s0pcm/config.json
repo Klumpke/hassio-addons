@@ -25,6 +25,5 @@
     "schema": {
       "data_path": "str",
       "device": "str"
-      }
     }
-  }
+}
