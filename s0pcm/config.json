@@ -1,11 +1,11 @@
 {
-    "name": "S0PCM",
+    "name": "S0PCM-reader",
     "version": "0.1",
     "slug": "s0pcm",
     "description": "S0PCM",
     "auto_uart": true,
-    "url": "https://github.com/Klumpke/hassio-addons/s0pcm",
-    "startup": "services",
+    "url": "https://github.com/Klumpke/hassio-addons",
+    "startup": "application",
     "arch": [
       "aarch64",
       "amd64",

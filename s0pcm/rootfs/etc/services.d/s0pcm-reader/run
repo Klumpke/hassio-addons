@@ -8,12 +8,12 @@ DATA_PATH=$(jq --raw-output '.data_path' $CONFIG_PATH)
 # Copy example configuration if not exists
 mkdir -p $DATA_PATH
 if [ ! -f $DATA_PATH/configuration.yaml ]; then
-  cp ./configuration.yaml.example $DATA_PATH/configuration.yaml
+  cp ./etc/s0pcm/configuration.yaml $DATA_PATH/configuration.yaml
 fi
 
 # Start s0pcm-reader
 echo "[INFO] Start S0PCM-reader"
-exec python3 ./s0pcm-reader.py -c $DATA_PATH
+python /usr/bin/s0pcm-reader.py -c $DATA_PATH
 
 if [ -f $DATA_PATH/.noexit ]; then
   sleep 7d
