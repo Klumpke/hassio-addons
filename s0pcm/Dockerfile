@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 # Copy root filesystem
 COPY rootfs /
 
-RUN pip install --no-cache-dir pyyaml==3.13 pyserial==3.4 paho-mqtt==1.4.0
+RUN pip install --no-cache-dir pyyaml==5.1 pyserial==3.4 paho-mqtt==1.4.0
 
 # Build arguments
 ARG BUILD_ARCH
