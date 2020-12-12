@@ -12,10 +12,13 @@ if [ ! -f $DATA_PATH/configuration.yaml ]; then
 fi
 
 # Configure S0PCM config with the add-on variables
+log_level="warning"
+log_level=$(jq --raw-output '.log_level' $CONFIG_PATH)
 # mqtt_port=$(jq --raw-output '.device' $CONFIG_PATH)
-# sed -i '~mqtt:~,~mqtt:~ s~port.*~port: ${device_port}~g' "$DATA_PATH/configuration - Copy.yaml"
 device_port=$(jq --raw-output '.device' $CONFIG_PATH)
-sed -i "/serial:/,/serial:/ s~port.*~port: ${device_port}~g" "$DATA_PATH/configuration - Copy.yaml"
+sed -i "/log:/,/log:/ s~level.*~level: ${log_level}~g" "$DATA_PATH/configuration.yaml"
+# sed -i '~mqtt:~,~mqtt:~ s~port.*~port: ${device_port}~g' "$DATA_PATH/configuration.yaml"
+sed -i "/serial:/,/serial:/ s~port.*~port: ${device_port}~g" "$DATA_PATH/configuration.yaml"
 
 # Start s0pcm-reader
 echo "[INFO] Start S0PCM-reader"
