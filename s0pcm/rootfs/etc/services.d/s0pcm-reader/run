@@ -15,7 +15,7 @@ fi
 # mqtt_port=$(jq --raw-output '.device' $CONFIG_PATH)
 # sed -i '~mqtt:~,~mqtt:~ s~port.*~port: ${device_port}~g' "$DATA_PATH/configuration - Copy.yaml"
 device_port=$(jq --raw-output '.device' $CONFIG_PATH)
-sed -i "~serial:~,~serial:~ s~port.*~port: ${device_port}~g" "$DATA_PATH/configuration - Copy.yaml"
+sed -i "/serial:/,/serial:/ s~port.*~port: ${device_port}~g" "$DATA_PATH/configuration - Copy.yaml"
 
 # Start s0pcm-reader
 echo "[INFO] Start S0PCM-reader"
