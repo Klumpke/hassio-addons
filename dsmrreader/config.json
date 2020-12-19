@@ -1,14 +1,13 @@
 {
-  "name": "DSMR Reader",
-  "version": "4.1.1",
+  "name": "DSMR-Reader",
+  "version": "4.9.0",
   "slug": "dsmrreader",
-  "description": "DSMR reader add-on based on ualex73/dsmr-reader-docker",
+  "description": "DSMR-Reader add-on based on ualex73/dsmr-reader-docker",
   "startup": "services",
   "arch": [
     "aarch64",
-    "amd64",
-    "armhf",
-    "i386"
+    "arm64v8",
+    "arm32v6"
   ],
   "ports": {
     "80/tcp": 8888
@@ -16,6 +15,13 @@
   "map": ["share:rw"],
   "webui": "http://[HOST]:[PORT:8888]",
   "boot": "auto",
+  "environment": {
+    "DB_HOST": "192.168.178.251",
+    "DSMR_USER": "dsmrreader",
+    "DSMR_PASSWORD": "dsmrreader",
+    "DSMR_EMAIL": "root@localhost"
+  },
   "schema": {},
-  "options": {}
+  "options": {},
+  "image":"ualex73/dsmr-reader-docker"
 }
