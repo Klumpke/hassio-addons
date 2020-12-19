@@ -6,8 +6,8 @@
   "startup": "services",
   "arch": [
     "aarch64",
-    "arm64v8",
-    "arm32v6"
+    "armhf",
+    "armv7"
   ],
   "ports": {
     "80/tcp": 8888
