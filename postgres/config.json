@@ -23,6 +23,5 @@
     "POSTGRES_DB": "dsmrreader"
   },
   "schema": {},
-  "options": {},
-  "image":"indrasoftdso/postgressql"
+  "options": {}
 }
