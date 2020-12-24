@@ -1,6 +1,6 @@
 {
   "name": "DSMR-Reader",
-  "version": "4.9.0",
+  "version": "1.0",
   "slug": "dsmrreader",
   "description": "DSMR-Reader add-on based on ualex73/dsmr-reader-docker",
   "startup": "services",
@@ -13,7 +13,10 @@
   "ports": {
     "80/tcp": 8888
   },
-  "map": ["share:rw"],
+  "map": [
+    "backup:rw",
+    "share:rw"
+  ],
   "webui": "http://[HOST]:[PORT:8888]",
   "boot": "auto",
   "environment": {
@@ -24,5 +27,4 @@
   },
   "schema": {},
   "options": {},
-  "image":"ualex73/dsmr-reader-docker"
 }
