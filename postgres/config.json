@@ -1,6 +1,6 @@
 {
     "name": "Postgres",
-    "version": "12-alpine",
+    "version": "latest",
     "slug": "postgres",
     "description": "Postgres add-on",
     "startup": "services",
