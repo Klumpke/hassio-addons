@@ -3,7 +3,7 @@
     "version": "0.1",
     "slug": "s0pcm",
     "description": "S0PCM",
-    "uart": true,
+    "auto_uart": true,
     "url": "https://github.com/Klumpke/hassio-addons",
     "startup": "application",
     "arch": [
@@ -17,6 +17,7 @@
     "map": [
       "share:rw"
     ],
+    "devices": ["/dev/bus/usb:/dev/bus/usb:rwm", "/dev/mem:/dev/mem:rw"],
     "options": {
       "data_path": "/share/s0pcm-reader",
       "device": "/dev/ttyACM0",
